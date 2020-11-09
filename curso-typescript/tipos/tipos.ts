@@ -38,8 +38,27 @@ console.log(varAny +  ' - ' + typeof(varAny))
 varAny = true
 console.log(varAny +  ' - ' + typeof(varAny))
 
+// Arrays são "object" em JS
 let varArray: any[]
-varArray = ['Luiz', 'Henrique', 'Sanches', 'Serafim']
-console.log(varArray[0] + ' - ' + varArray[1])
-varArray = [37]
+varArray = ['Luiz', 'Henrique', 'Sanches', 'Serafim', 37]
+console.log(varArray[0] + ' - ' + varArray[4])
+varArray = [true]
 console.log(varArray[0])
+
+// Tuplas
+// É um array de tipos em uma quantidade pré-definida
+let varTupla: [string, number, string]
+varTupla = ['Av. Paulista', 1500, 'apto 1000']
+console.log(varTupla +  ' - ' + typeof(varTupla))
+
+// Enums
+enum Cor {
+    Cinza, // 0 
+    Verde, // 1
+    Vermelho = 100, // 100 // Atribuição explicita de valor
+    Preto, // 101
+    Amarelo
+}
+
+let minhaCor: Cor = Cor.Amarelo
+console.log(minhaCor) // Vai imprimir 102, que é o valor de amarelo

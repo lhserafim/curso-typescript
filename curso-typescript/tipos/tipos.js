@@ -27,8 +27,25 @@ varAny = 20;
 console.log(varAny + ' - ' + typeof (varAny));
 varAny = true;
 console.log(varAny + ' - ' + typeof (varAny));
+// Arrays são "object" em JS
 var varArray;
-varArray = ['Luiz', 'Henrique', 'Sanches', 'Serafim'];
-console.log(varArray[0] + ' - ' + varArray[1]);
-varArray = [37];
+varArray = ['Luiz', 'Henrique', 'Sanches', 'Serafim', 37];
+console.log(varArray[0] + ' - ' + varArray[4]);
+varArray = [true];
 console.log(varArray[0]);
+// Tuplas
+// É um array de tipos em uma quantidade pré-definida
+var varTupla;
+varTupla = ['Av. Paulista', 1500, 'apto 1000'];
+console.log(varTupla + ' - ' + typeof (varTupla));
+// Enums
+var Cor;
+(function (Cor) {
+    Cor[Cor["Cinza"] = 0] = "Cinza";
+    Cor[Cor["Verde"] = 1] = "Verde";
+    Cor[Cor["Vermelho"] = 100] = "Vermelho";
+    Cor[Cor["Preto"] = 101] = "Preto";
+    Cor[Cor["Amarelo"] = 102] = "Amarelo";
+})(Cor || (Cor = {}));
+var minhaCor = Cor.Amarelo;
+console.log(minhaCor); // Vai imprimir 102, que é o valor de amarelo
