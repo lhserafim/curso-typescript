@@ -141,3 +141,18 @@ var contato1 = {
     tel2: null
 };
 console.log(contato1);
+var contaBancaria = {
+    saldo: 3456,
+    depositar: function (valor) {
+        this.saldo += valor;
+    }
+};
+var correntista = {
+    nome: 'Ana Silva',
+    contaBancaria: contaBancaria,
+    contatos: ['34567890', '98765432']
+};
+console.log(contaBancaria);
+correntista.contaBancaria.depositar(100000);
+console.log(correntista);
+console.log("Saldo do correntista R$ " + contaBancaria.saldo);
