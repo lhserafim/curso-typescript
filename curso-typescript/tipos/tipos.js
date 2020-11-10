@@ -2,7 +2,7 @@
 // O compilador JS faz a INFERÊNCIA dos tipos quando a variável é criada e inicializada
 // EXEMPLOS
 // String
-var nome = 'João';
+var nome = 'Luiz Serafim';
 console.log(nome + ' - ' + typeof (nome));
 //nome = 10 // não é permitido fazer isso
 var numero = 10.1;
@@ -49,3 +49,36 @@ var Cor;
 })(Cor || (Cor = {}));
 var minhaCor = Cor.Amarelo;
 console.log(minhaCor); // Vai imprimir 102, que é o valor de amarelo
+// funções passando tipo
+function retornaMeuNome() {
+    return nome;
+}
+console.log(retornaMeuNome());
+// Quando a função não retornar nada, posso deixar explicito o void
+function semRetorno() {
+    console.log('Função sem retorno');
+}
+semRetorno();
+// colocando tipos nos parametros
+function multiplicar(numA, numB) {
+    return numA * numB;
+}
+console.log(multiplicar(10, 5.2));
+// 20. Funções Como Tipos
+// Vou atribuir a uma variável uma função com os tipos
+var calculo; // usar o => como se fosse uma arrow function
+calculo = multiplicar;
+console.log(calculo(5, 6));
+// resumindo, é como se eu tivesse " transformado " a variável calculo na função multiplicar
+//21. Objetos e Tipos
+var usuario = {
+    nome: 'Daniela',
+    idade: 37
+};
+console.log(usuario);
+// Com tipo
+var usuarioComTipo = {
+    nome: 'Daniela',
+    idade: 37
+};
+console.log(usuarioComTipo);

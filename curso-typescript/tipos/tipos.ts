@@ -2,7 +2,7 @@
 
 // EXEMPLOS
 // String
-let nome = 'João'
+let nome = 'Luiz Serafim'
 console.log(nome  +  ' - ' + typeof(nome))
 //nome = 10 // não é permitido fazer isso
 
@@ -62,3 +62,47 @@ enum Cor {
 
 let minhaCor: Cor = Cor.Amarelo
 console.log(minhaCor) // Vai imprimir 102, que é o valor de amarelo
+
+// funções passando tipo
+function retornaMeuNome(): String {
+    return nome
+}
+
+console.log(retornaMeuNome())
+
+// Quando a função não retornar nada, posso deixar explicito o void
+
+function semRetorno(): void {
+    console.log('Função sem retorno')
+}
+semRetorno()
+
+// colocando tipos nos parametros
+
+function multiplicar(numA: number, numB: number): number {
+    return numA * numB
+}
+
+console.log(multiplicar(10, 5.2))
+
+// 20. Funções Como Tipos
+// Vou atribuir a uma variável uma função com os tipos
+let calculo: (x: number, y: number) => number // usar o => como se fosse uma arrow function
+calculo = multiplicar
+console.log(calculo(5,6))
+// resumindo, é como se eu tivesse " transformado " a variável calculo na função multiplicar
+
+//21. Objetos e Tipos
+let usuario = {
+    nome: 'Daniela',
+    idade: 37
+}
+console.log(usuario)
+
+// Com tipo
+let usuarioComTipo: {nome: string, idade: number} = {
+    nome: 'Daniela',
+    idade: 37
+}
+
+console.log(usuarioComTipo)
