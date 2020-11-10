@@ -92,7 +92,7 @@ calculo = multiplicar
 console.log(calculo(5,6))
 // resumindo, é como se eu tivesse " transformado " a variável calculo na função multiplicar
 
-//21. Objetos e Tipos
+// 21. Objetos e Tipos
 let usuario = {
     nome: 'Daniela',
     idade: 37
@@ -100,9 +100,100 @@ let usuario = {
 console.log(usuario)
 
 // Com tipo
-let usuarioComTipo: {nome: string, idade: number} = {
-    nome: 'Daniela',
+let usuarioComTipo: {nome: string, idade: number} = { // definição
+    nome: 'Daniela', // atributos
     idade: 37
 }
 
 console.log(usuarioComTipo)
+
+// 22. Desafio Tipo Objetos
+
+// function baterPonto(hora: number): string {
+//     let ponto: string
+//     if (hora <= 8) {
+//         ponto = 'Ponto normal'
+//     } else {
+//         ponto = 'Fora do horário'
+//     }
+//     return ponto
+// }
+
+//console.log(baterPonto(9))
+
+let funcionario: { // definição, tipagem do objeto
+    nomeSupervisor: string[], 
+    baterPonto: (horas: number) => string
+} = {
+    nomeSupervisor: ['Paulo', 'Luiz', 'João'],
+    baterPonto(hora: number): string {
+        let ponto: string
+        if (hora <= 8) {
+            ponto = 'Ponto normal'
+        } else {
+            ponto = 'Fora do horário'
+        }
+        return ponto
+    }
+}
+
+console.log(funcionario)
+console.log(funcionario.nomeSupervisor)
+console.log(funcionario.baterPonto(8))
+console.log(funcionario.baterPonto(9))
+
+
+// 24. Definindo Tipos Personalizados (Alias)
+// Usar um TYPE para poder reaproveitar código
+
+type Funcionario = {
+    nomeSupervisor: string[], 
+    baterPonto: (horas: number) => string
+}
+
+let funcionario2: Funcionario = {
+    nomeSupervisor: ['Paulo', 'Luiz', 'João'],
+    baterPonto(hora: number): string {
+        let ponto: string
+        if (hora <= 8) {
+            ponto = 'Ponto normal'
+        } else {
+            ponto = 'Fora do horário'
+        }
+        return ponto
+    }
+}
+
+console.log(funcionario2)
+
+// 25. Múltiplos Tipos com Union Types
+// Permitir usar mais de que 1 tipo na mesma variável! 
+let nota: number | string = 10
+console.log(`Minha nota é ${nota}`)
+nota = '10'
+console.log(`Minha nota é ${nota}`)
+
+// 27. O Tipo "Never"
+// O never é uma função que nunca "termina", geralmente é usado p/ erro
+function falha(msg: string): never {
+    throw new Error(msg)
+}
+
+// 28. Valores Opcionais com Tipo "Null"
+// Quando eu quiser que um valor seja nulo (valor opcional) é necessário usar o union types.
+
+// Usando o type, para ter reuso
+type Contato = {
+    nome: string,
+    tel1: string,
+    tel2: string | null
+
+}
+
+const contato1: Contato = {
+    nome: 'Luiz',
+    tel1: '939423240',
+    tel2: null
+}
+
+console.log(contato1)

@@ -70,7 +70,7 @@ var calculo; // usar o => como se fosse uma arrow function
 calculo = multiplicar;
 console.log(calculo(5, 6));
 // resumindo, é como se eu tivesse " transformado " a variável calculo na função multiplicar
-//21. Objetos e Tipos
+// 21. Objetos e Tipos
 var usuario = {
     nome: 'Daniela',
     idade: 37
@@ -82,3 +82,62 @@ var usuarioComTipo = {
     idade: 37
 };
 console.log(usuarioComTipo);
+// 22. Desafio Tipo Objetos
+// function baterPonto(hora: number): string {
+//     let ponto: string
+//     if (hora <= 8) {
+//         ponto = 'Ponto normal'
+//     } else {
+//         ponto = 'Fora do horário'
+//     }
+//     return ponto
+// }
+//console.log(baterPonto(9))
+var funcionario = {
+    nomeSupervisor: ['Paulo', 'Luiz', 'João'],
+    baterPonto: function (hora) {
+        var ponto;
+        if (hora <= 8) {
+            ponto = 'Ponto normal';
+        }
+        else {
+            ponto = 'Fora do horário';
+        }
+        return ponto;
+    }
+};
+console.log(funcionario);
+console.log(funcionario.nomeSupervisor);
+console.log(funcionario.baterPonto(8));
+console.log(funcionario.baterPonto(9));
+var funcionario2 = {
+    nomeSupervisor: ['Paulo', 'Luiz', 'João'],
+    baterPonto: function (hora) {
+        var ponto;
+        if (hora <= 8) {
+            ponto = 'Ponto normal';
+        }
+        else {
+            ponto = 'Fora do horário';
+        }
+        return ponto;
+    }
+};
+console.log(funcionario2);
+// 25. Múltiplos Tipos com Union Types
+// Permitir usar mais de que 1 tipo na mesma variável! 
+var nota = 10;
+console.log("Minha nota \u00E9 " + nota);
+nota = '10';
+console.log("Minha nota \u00E9 " + nota);
+// 27. O Tipo "Never"
+// O never é uma função que nunca "termina", geralmente é usado p/ erro
+function falha(msg) {
+    throw new Error(msg);
+}
+var contato1 = {
+    nome: 'Luiz',
+    tel1: '939423240',
+    tel2: null
+};
+console.log(contato1);
