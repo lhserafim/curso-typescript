@@ -1,5 +1,5 @@
 "use strict";
-var a = 'Teste TS';
+const a = 'Teste TS';
 console.log(a);
 // EXECUÇÃO DE FORMA MANUAL
 // Dentro da pasta atual (introducao), digitar tsc nome_arquivo.ts, para gerar o arquivo .js
@@ -10,3 +10,4 @@ console.log(a);
 // Gerar o arquivo package.json: npm init -y
 // Instalar o live-server: npm i -s live-server
 // Abrir 2 abas do terminal. Em uma digitar npm start e em outra tsc -w (para adicionar um watch nos arquivos)
+//# sourceMappingURL=basico.js.map
