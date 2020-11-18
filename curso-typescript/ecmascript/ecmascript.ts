@@ -58,3 +58,44 @@ function contagemRegressiva(inicio: number = 3): void { // passando param padrã
 contagemRegressiva()
 contagemRegressiva(5)
 
+// Rest & Spread
+const numeros = [1,10,99,-5]
+// Sem usar o SPREAD (...)
+console.log(Math.max(numeros[0],numeros[1],numeros[2],numeros[3]))
+
+// Usand o SPREAD (...)
+console.log(Math.max(...numeros))
+
+// Passando o SPREAD como union de arrays
+const alfabetoA: string[] = ['A','B','C']
+const alfabetoB: string[] = [...alfabetoA, 'D', 'E','F']
+console.log(alfabetoB)
+
+// Usando o REST como argumento de uma função
+// É útil pois flexíbiliza o número de argumentos
+
+function retornarArray(...args: number[]): number[] { // IMPORTANTE o argumento REST, precisa ser o último parâmetro. SEMPRE!
+    return args
+}
+
+console.log(retornarArray(1,2,3,4,5,6))
+console.log(retornarArray(...numeros))
+
+// Usando o conceito de TUPLA com REST & SPREAD
+// Tupla é um array de tipos em uma quantidade pré-definida
+
+const tupla: [number, string, boolean] = [1, 'abc', false]
+
+function tuplaParam1(a: number, b: string, c: boolean): void {
+    console.log(`1) ${a} ${b} ${c}`)
+}
+
+tuplaParam1(...tupla)
+
+function tuplaParam2(...params: [number, string, boolean]) {
+    console.log(`2) ${params[0]} ${params[1]} ${params[2]}`)
+}
+
+tuplaParam2(...tupla)
+
+
