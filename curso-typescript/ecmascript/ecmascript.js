@@ -74,4 +74,27 @@ function tuplaParam2(...params) {
     console.log(`2) ${params[0]} ${params[1]} ${params[2]}`);
 }
 tuplaParam2(...tupla);
+// Operador Destructuring (array)
+const caracteristicas = ['Motor Zetec 1.8', 2020];
+const [motor, ano] = caracteristicas;
+console.log(motor);
+console.log(ano);
+// Operador Destructuring (objeto)
+const item = {
+    tipo: 'SSD 480GB',
+    preco: 200,
+    caracteristica: {
+        xpto: 'Importado'
+    }
+};
+const { tipo, preco, caracteristica: { xpto } } = item;
+console.log(tipo, preco, xpto);
+// Template String
+const texto1 = 'string';
+const templateString = `
+    Este é um teste de template ${texto1}
+
+    Inclusive posso usar quebra de linhas no template ${texto1}
+`;
+console.log(templateString);
 //# sourceMappingURL=ecmascript.js.map
