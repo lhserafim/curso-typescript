@@ -90,7 +90,7 @@ console.log(carro1.desacelerar());
 // PILARES DA OO
 // 1. Encapsulamento (modificadores de acesso: public, private, etc)
 // 2. Herança (relação é 1. Utilizar o extends)
-// 3. Polimorfismo (alterar o comportamento de métodos, construtores, etc)
+// 3. Polimorfismo (Uma variável tendo comportamentos diferentes, dependendo da instanciação da classe)
 // 4. Abstração
 // HERANÇA
 // Diferença entre COMPOSIÇÃO e HERANÇA
@@ -129,15 +129,72 @@ console.log(pessoa1); // chamou o get
 // Uma classe pode ter atributos e métodos estáticos
 // membros estáticos pertencem a classe e não a instancia
 // Por exemplo, eu posso ter uma classe que eu não precise de várias instancias dela, pois quero usar ela para calcular algo por exemplo
-class Calculo {
+class Matematica {
     static areaCirc(raio) {
         return this.PI * raio * raio; // Usando o this p/ acessar um atributo da classe
     }
 }
-Calculo.PI = 3.1416;
+Matematica.PI = 3.1416;
 // Sendo assim não preciso criar uma instancia da classe
 // const m1 = new Calculo()
 // console.log(Calculo.areaCirc(4))
 // Posso acessar direto
-console.log(Calculo.areaCirc(4));
+console.log(Matematica.areaCirc(4));
+// Classes abstratas
+// Não permite criar instancias de classes abstratas
+// Geralmente usamos classes abstratas p/ que outras classes herdem os atributos e métodos desta classe
+// Classe abstrata
+class Calculo {
+    constructor() {
+        this.resultado = 0; // usei protected p/ que outras classes possam herdar o atributo
+    }
+    getResultado() {
+        return this.resultado;
+    }
+}
+class Soma extends Calculo {
+    // Implementar o método abstrato da classe abstrata
+    executar(...numeros) {
+        // usando this, p/ acessar atributos da classe. Neste caso atributo herdado
+        this.resultado = numeros.reduce((valorTotal, valorAtual) => valorTotal + valorAtual);
+    }
+}
+class Multiplicar extends Calculo {
+    // Implementar o método abstrato da classe abstrata
+    executar(...numeros) {
+        // usando this, p/ acessar atributos da classe. Neste caso atributo herdado
+        this.resultado = numeros.reduce((valorTotal, valorAtual) => valorTotal * valorAtual);
+    }
+}
+// Exemplo de polimorfismo
+let c1 = new Soma();
+c1.executar(2, 3, 5);
+console.log(c1.getResultado());
+c1 = new Multiplicar();
+c1.executar(2, 3, 5);
+console.log(c1.getResultado());
+// Construtor privado e singleton
+class Unico {
+    constructor() { }
+    static getInstancia() {
+        return Unico.instancia; // uso a classe ao invés de this. Pq this é instancia e aqui não estamos trabalhando com instancias
+    }
+    agora() {
+        return new Date;
+    }
+}
+Unico.instancia = new Unico;
+// como usar
+console.log(Unico.getInstancia().agora());
+// Atributos somente leitura
+class Aviao {
+    constructor(modelo, prefixo) {
+        this.prefixo = prefixo;
+        this.modelo = modelo;
+    }
+}
+const turboHelice = new Aviao('Tu-114', 'PT-ABC');
+// Não consigo alterar
+// turboHelice.modelo = 'DC-8'
+console.log(turboHelice);
 //# sourceMappingURL=classes.js.map
