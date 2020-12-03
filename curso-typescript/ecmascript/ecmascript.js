@@ -119,11 +119,12 @@ esperar3sPromise().then(x => console.log(x));
 esperar3sPromise()
     .then(dado => console.log(dado));
 // Encadeando chamadas com promises, usando api do star wars https://swapi.dev/api/
-fetch('https://swapi.dev/api/people/1')
-    .then(res => res.json())
-    .then(personagem => personagem.films)
-    .then(films => fetch(films[0]))
-    .then(resFilm => resFilm.json())
-    .then(filme => console.log(filme.title))
-    .catch(err => console.log('Catch!!!!' + err));
+// Comentado pois a api está com problemas de acesso
+// fetch('https://swapi.dev/api/people/1')
+//     .then(res => res.json())
+//     .then(personagem => personagem.films)
+//     .then(films => fetch(films[0]))
+//     .then(resFilm => resFilm.json())
+//     .then(filme => console.log(filme.title))
+//     .catch(err => console.log('Catch!!!!' + err))
 //# sourceMappingURL=ecmascript.js.map
